@@ -5,7 +5,7 @@ const Exam = require('../models/Exam.model');
 exports.addExam = async (req, res) => {
   try {
     const exam = await Exam.create(req.body);
-    res.status(201).json({ exam });
+    res.status(201).json({ exam , message:'Success'});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -37,7 +37,7 @@ exports.updateExam = async (req, res) => {
   try {
     const exam = await Exam.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!exam) throw new Error('Exam not found');
-    res.json({ exam });
+    res.json({ exam, message:'updated successfully' });
   } catch (error) {
     res.status(404).json({ error: error.message });
   }

@@ -10,9 +10,9 @@ module.exports = function (app) {
 
   app.get("/api/exam/get", controller.getAllExams);
 
-  app.get("/api/exam/get:id", controller.getExamById);
+  app.get("/api/exam/get/:id", controller.getExamById);
 
-  app.put("/api/exam/update", controller.updateExam);
+  app.put("/api/exam/update/:id", controller.updateExam);
 
-  app.delete("/api/exam/delete:id", controller.deleteExam);
+  app.delete("/api/exam/delete/:id", controller.deleteExam);
 };
